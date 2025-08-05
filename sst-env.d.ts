@@ -2,12 +2,15 @@
 /* tslint:disable */
 /* eslint-disable */
 /* deno-fmt-ignore-file */
-import "sst"
-export {}
+
 declare module "sst" {
   export interface Resource {
     "Api": {
       "type": "sst.aws.ApiGatewayV2"
+      "url": string
+    }
+    "Frontend": {
+      "type": "sst.aws.StaticSite"
       "url": string
     }
     "IdentityPool": {
@@ -17,6 +20,10 @@ declare module "sst" {
     "Notes": {
       "name": string
       "type": "sst.aws.Dynamo"
+    }
+    "StripeSecretKey": {
+      "type": "sst.sst.Secret"
+      "value": string
     }
     "Uploads": {
       "name": string
@@ -33,3 +40,7 @@ declare module "sst" {
     }
   }
 }
+/// <reference path="sst-env.d.ts" />
+
+import "sst"
+export {}
