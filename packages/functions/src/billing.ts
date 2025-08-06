@@ -10,7 +10,7 @@ export const main = Util.handler(async (event) => {
 
   const stripe = new Stripe(
     // Load our secret key
-    Resource.StripeSecretKey.value,
+    process.env.STRIPE_SECRET_KEY!,
     { apiVersion: "2025-02-24.acacia" }
   );
 
